@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render without crashing 1`] = `<Title />`;
+exports[`App should render without crashing 1`] = `
+<Fragment>
+  <Title />
+  <Tagline />
+</Fragment>
+`;

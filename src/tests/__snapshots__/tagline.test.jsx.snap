@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tagline should render without crashing 1`] = `
+<styled.p>
+  Discover new books!
+  <br />
+  Try searching by title or author!
+</styled.p>
+`;

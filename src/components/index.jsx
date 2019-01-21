@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Title from './title/title';
+import Tagline from './tagline/tagline';
 
 const App = () => (
-  <Title />
+  <Fragment>
+    <Title />
+    <Tagline />
+  </Fragment>
 );
 
 export default App;
