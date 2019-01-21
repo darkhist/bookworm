@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Title from './title/title';
+
 const App = () => (
-  <h1> hello world :~) </h1>
+  <Title />
 );
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root') || document.createElement('div'));

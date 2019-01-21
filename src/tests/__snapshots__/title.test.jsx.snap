@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should render without crashing 1`] = `
+<styled.h1>
+  <span
+    aria-label="book emoji"
+    role="img"
+  >
+     📚 
+  </span>
+  Bookworm
+  <span
+    aria-label="bug emoji"
+    role="img"
+  >
+     🐛 
+  </span>
+</styled.h1>
+`;
