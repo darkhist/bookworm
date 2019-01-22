@@ -10,6 +10,10 @@
     "plugin:react/recommended"
   ],
   "rules": {
+    "comma-dangle": [
+      "error",
+      "only-multiline"
+    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
