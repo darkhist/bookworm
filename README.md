@@ -24,15 +24,14 @@ Follow these steps to get a copy of this project running locally :~)
 3. Install [Yarn](https://yarnpkg.com/en/)
 4. Run the following commands in your Terminal:  
 
-    1. `git clone https://github.com/darkhist/bookworm.git`
-    > If the clone fails, check out [this](https://help.github.com/articles/https-cloning-errors/) article
+    1. `git clone https://github.com/darkhist/bookworm.git`  
+        * If the clone fails, check out [this](https://help.github.com/articles/https-cloning-errors/) article
     2. `cd bookworm`
     3. `yarn`
-    4. `yarn dev`
-    > This will start a local development server via Parcel  
-    > For more commands, see [Commands](#Commands)
-5. Visit `http://localhost:1234` to see a live preview of the app!  
-Happy hacking!
+    4. `yarn dev`  
+        * This will start a local development server via Parcel  
+        * For more commands, see [Commands](#Commands)
+    5. Visit `http://localhost:1234` to see a live preview of the app! Happy hacking!
 
 ## Commands
 
