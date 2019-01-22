@@ -4,6 +4,8 @@ exports[`App should render without crashing 1`] = `
 <Fragment>
   <Title />
   <Tagline />
-  <Search />
+  <Search
+    onChange={[Function]}
+  />
 </Fragment>
 `;

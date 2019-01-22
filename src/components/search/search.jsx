@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
-const Form = styled.form`
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  justify-items: center;
+const SearchContainer = styled.div`
   text-align: center;
   margin: 1.5em 1em;
 `;
@@ -18,11 +14,6 @@ const Input = styled.input`
   width: 75%;
 `;
 
-const Button = styled.button`
-  border-radius: 45px;
-  font-size: .75em;
-`;
-
 class Search extends Component {
   constructor() {
     super();
@@ -30,14 +21,16 @@ class Search extends Component {
   }
 
   onInputChange(term) {
+    const { onChange } = this.props;
     this.setState({ term });
+    onChange(term);
   }
 
   render() {
     const { term } = this.state;
 
     return (
-      <Form role="search">
+      <SearchContainer>
         <Input
           placeholder="Search"
           value={term}
@@ -47,12 +40,13 @@ class Search extends Component {
             this.onInputChange(event.target.value);
           }}
         />
-        <Button type="submit" aria-label="search button">
-          <FontAwesomeIcon icon={faSearch} />
-        </Button>
-      </Form>
+      </SearchContainer>
     );
   }
 }
+
+Search.propTypes = {
+  onChange: PropTypes.func.isRequired
+};
 
 export default Search;
