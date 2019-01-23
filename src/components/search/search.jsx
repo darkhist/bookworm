@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const SearchContainer = styled.div`
   text-align: center;
-  margin: 1.5em 1em;
+  margin: 1em;
 `;
 
 const Input = styled.input`
@@ -15,8 +15,8 @@ const Input = styled.input`
 `;
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { term: '' };
   }
 

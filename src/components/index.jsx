@@ -1,6 +1,3 @@
-// TODO: Remove after passing results to <Results /> component
-/* eslint-disable react/no-unused-state */
-
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
@@ -9,11 +6,16 @@ import debounce from 'lodash.debounce';
 import Title from './title/title';
 import Tagline from './tagline/tagline';
 import Search from './search/search';
+import Results from './results/results';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = { results: undefined };
+  constructor(props) {
+    super(props);
+    this.state = { results: [] };
+  }
+
+  componentDidMount() {
+    this.getBooks('cats');
   }
 
   async getBooks(term) {
@@ -25,6 +27,8 @@ class App extends Component {
   }
 
   render() {
+    const { results } = this.state;
+
     const getBooks = debounce((term) => {
       this.getBooks(term);
     }, 500);
@@ -34,6 +38,7 @@ class App extends Component {
         <Title />
         <Tagline />
         <Search onChange={getBooks} />
+        <Results results={results} />
       </Fragment>
     );
   }

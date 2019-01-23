@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book should render without crashing 1`] = `
+<styled.li>
+  <styled.div>
+    <cite>
+      Flowers
+    </cite>
+  </styled.div>
+  <styled.img
+    alt="Cover of Flowers"
+    src="http://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+  />
+  <div>
+    <styled.p>
+      Author(s):  
+      Gail Saunders Smith
+    </styled.p>
+    <styled.p>
+      Publisher(s):  
+      Capstone
+    </styled.p>
+  </div>
+  <div>
+    <styled.button
+      type="button"
+    >
+      <styled.a
+        href="http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api"
+      >
+        Learn More
+      </styled.a>
+    </styled.button>
+  </div>
+</styled.li>
+`;
