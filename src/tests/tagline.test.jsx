@@ -8,9 +8,4 @@ describe('Tagline', () => {
     const tagline = shallow(<Tagline />);
     expect(tagline).toMatchSnapshot();
   });
-
-  it('should return some helpful text', () => {
-    const tagline = shallow(<Tagline />);
-    expect(tagline.html()).toContain('Try searching by title or author');
-  });
 });

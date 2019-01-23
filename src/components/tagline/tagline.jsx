@@ -11,8 +11,6 @@ const StyledTagline = styled.p`
 const Tagline = () => (
   <StyledTagline>
     Discover new books!
-    <br />
-    Try searching by title or author!
   </StyledTagline>
 );
 
