@@ -40,7 +40,7 @@ class App extends Component {
       this.getBooks(term);
     }, 500);
 
-    if (!results || results.length === 0) {
+    if (!results) {
       return (
         <Fragment>
           <Title />
