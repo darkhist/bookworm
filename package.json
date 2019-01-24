@@ -53,6 +53,13 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/file-mock.js"
+    }
   }
 }

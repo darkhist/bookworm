@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import fallback from '../../assets/books-and-glasses.jpg';
+
 const StyledBook = styled.li`
   display: grid;
   align-items: center;
@@ -57,7 +59,8 @@ const Book = ({ book }) => {
   const { title } = book.volumeInfo;
   const { authors } = book.volumeInfo;
   const { publisher } = book.volumeInfo;
-  const thumbnail = book.volumeInfo.imageLinks.smallThumbnail;
+  const thumbnail = book.volumeInfo.imageLinks
+    ? book.volumeInfo.imageLinks.smallThumbnail : fallback;
   const link = book.volumeInfo.infoLink;
   const alt = `Cover of ${title}`;
 
