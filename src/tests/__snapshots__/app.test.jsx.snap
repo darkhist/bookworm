@@ -7,8 +7,14 @@ exports[`App should render without crashing 1`] = `
   <Search
     onChange={[Function]}
   />
-  <Results
-    results={Array []}
-  />
+  <styled.div>
+    Sorry, nothing was found!  
+    <span
+      aria-label="sad face emoji"
+      role="img"
+    >
+      😢
+    </span>
+  </styled.div>
 </Fragment>
 `;
