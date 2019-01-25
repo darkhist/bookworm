@@ -5,25 +5,26 @@ import Search from '../components/search/search';
 
 describe('Search', () => {
   const fn = jest.fn();
+  const valid = true;
 
   it('should render without crashing', () => {
-    const search = shallow(<Search onChange={fn} />);
+    const search = shallow(<Search onChange={fn} valid={valid} />);
     expect(search).toMatchSnapshot();
   });
 
   it('should have the correct init state', () => {
-    const search = shallow(<Search onChange={fn} />);
+    const search = shallow(<Search onChange={fn} valid={valid} />);
     expect(search.state('term')).toEqual('');
   });
 
   it('should have an input', () => {
-    const search = mount(<Search onChange={fn} />);
+    const search = mount(<Search onChange={fn} valid={valid} />);
     const input = search.find('input');
     expect(input.exists()).toBeTruthy();
   });
 
   it('should update the state on input change', () => {
-    const search = mount(<Search onChange={fn} />);
+    const search = mount(<Search onChange={fn} valid={valid} />);
     const input = search.find('input');
 
     input.simulate('change', {

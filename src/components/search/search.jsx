@@ -14,6 +14,11 @@ const Input = styled.input`
   width: 75%;
 `;
 
+const ErrorMessage = styled.span`
+  color: red;
+  display: ${props => (props.valid ? 'none' : 'block')};
+`;
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +33,7 @@ class Search extends Component {
 
   render() {
     const { term } = this.state;
+    const { valid } = this.props;
 
     return (
       <SearchContainer>
@@ -40,13 +46,17 @@ class Search extends Component {
             this.onInputChange(event.target.value);
           }}
         />
+        <ErrorMessage valid={valid}>
+          Searches cannot be empty, and the following characters are not allowed: #, %, &
+        </ErrorMessage>
       </SearchContainer>
     );
   }
 }
 
 Search.propTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  valid: PropTypes.bool.isRequired
 };
 
 export default Search;

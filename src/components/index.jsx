@@ -18,7 +18,7 @@ const Error = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { results: [] };
+    this.state = { results: [], valid: true };
   }
 
   componentDidMount() {
@@ -26,26 +26,30 @@ class App extends Component {
   }
 
   async getBooks(term) {
-    term.trim().toLowerCase().replace(' ', '+');
-    const response = await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
-    const books = response.data.items;
-    this.setState({ results: books });
+    const regex = new RegExp(/^\s*$|[#%&]+/);
+    if ((regex.test(term) === false) && (term.length > 1)) {
+      const response = await axios
+        .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
+      const books = response.data.items;
+      this.setState({ results: books, valid: true });
+    } else {
+      this.setState({ valid: false });
+    }
   }
 
   render() {
-    const { results } = this.state;
+    const { results, valid } = this.state;
 
     const getBooks = debounce((term) => {
       this.getBooks(term);
-    }, 500);
+    }, 300);
 
     if (!results) {
       return (
         <Fragment>
           <Title />
           <Tagline />
-          <Search onChange={getBooks} />
+          <Search valid={valid} onChange={getBooks} />
           <Error>
             Sorry, nothing was found! &thinsp;
             <span role="img" aria-label="sad face emoji">
@@ -60,7 +64,7 @@ class App extends Component {
       <Fragment>
         <Title />
         <Tagline />
-        <Search onChange={getBooks} />
+        <Search valid={valid} onChange={getBooks} />
         <Results results={results} />
       </Fragment>
     );

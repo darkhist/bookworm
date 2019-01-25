@@ -9,5 +9,10 @@ exports[`Search should render without crashing 1`] = `
     type="text"
     value=""
   />
+  <styled.span
+    valid={true}
+  >
+    Searches cannot be empty, and the following characters are not allowed: #, %, &
+  </styled.span>
 </styled.div>
 `;

@@ -6,6 +6,7 @@ exports[`App should render without crashing 1`] = `
   <Tagline />
   <Search
     onChange={[Function]}
+    valid={true}
   />
   <Results
     results={Array []}
