@@ -1,80 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Results should render without crashing 1`] = `
-<styled.ul>
-  <Book
-    book={
-      Object {
-        "accessInfo": Object {
-          "accessViewStatus": "SAMPLE",
-          "country": "US",
-          "embeddable": true,
-          "epub": Object {
-            "isAvailable": false,
-          },
-          "pdf": Object {
-            "isAvailable": false,
-          },
-          "publicDomain": false,
-          "quoteSharingAllowed": false,
-          "textToSpeechPermission": "ALLOWED",
-          "viewability": "PARTIAL",
-          "webReaderLink": "http://play.google.com/books/reader?id=ogs_KDUQLSsC&hl=&printsec=frontcover&source=gbs_api",
-        },
-        "etag": "CfGDkHrf3vo",
-        "id": "ogs_KDUQLSsC",
-        "kind": "books#volume",
-        "saleInfo": Object {
-          "country": "US",
-          "isEbook": false,
-          "saleability": "NOT_FOR_SALE",
-        },
-        "searchInfo": Object {
-          "textSnippet": "Simple text and photographs depict the parts of flowers and their pollination.",
-        },
-        "selfLink": "https://www.googleapis.com/books/v1/volumes/ogs_KDUQLSsC",
-        "volumeInfo": Object {
-          "allowAnonLogging": false,
-          "authors": Array [
-            "Gail Saunders Smith",
-          ],
-          "canonicalVolumeLink": "https://books.google.com/books/about/Flowers.html?hl=&id=ogs_KDUQLSsC",
-          "categories": Array [
-            "Juvenile Nonfiction",
-          ],
-          "contentVersion": "0.1.1.0.preview.1",
-          "description": "Simple text and photographs depict the parts of flowers and their pollination.",
-          "imageLinks": Object {
-            "smallThumbnail": "http://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "thumbnail": "http://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-          },
-          "industryIdentifiers": Array [
-            Object {
-              "identifier": "0736848649",
-              "type": "ISBN_10",
+<main>
+  <styled.ul>
+    <Book
+      book={
+        Object {
+          "accessInfo": Object {
+            "accessViewStatus": "SAMPLE",
+            "country": "US",
+            "embeddable": true,
+            "epub": Object {
+              "isAvailable": false,
             },
-            Object {
-              "identifier": "9780736848640",
-              "type": "ISBN_13",
+            "pdf": Object {
+              "isAvailable": false,
             },
-          ],
-          "infoLink": "http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api",
-          "language": "en",
-          "maturityRating": "NOT_MATURE",
-          "pageCount": 24,
-          "previewLink": "http://books.google.com/books?id=ogs_KDUQLSsC&printsec=frontcover&dq=flowers&hl=&cd=1&source=gbs_api",
-          "printType": "BOOK",
-          "publishedDate": "2004-09-01",
-          "publisher": "Capstone",
-          "readingModes": Object {
-            "image": true,
-            "text": false,
+            "publicDomain": false,
+            "quoteSharingAllowed": false,
+            "textToSpeechPermission": "ALLOWED",
+            "viewability": "PARTIAL",
+            "webReaderLink": "http://play.google.com/books/reader?id=ogs_KDUQLSsC&hl=&printsec=frontcover&source=gbs_api",
           },
-          "title": "Flowers",
-        },
+          "etag": "CfGDkHrf3vo",
+          "id": "ogs_KDUQLSsC",
+          "kind": "books#volume",
+          "saleInfo": Object {
+            "country": "US",
+            "isEbook": false,
+            "saleability": "NOT_FOR_SALE",
+          },
+          "searchInfo": Object {
+            "textSnippet": "Simple text and photographs depict the parts of flowers and their pollination.",
+          },
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/ogs_KDUQLSsC",
+          "volumeInfo": Object {
+            "allowAnonLogging": false,
+            "authors": Array [
+              "Gail Saunders Smith",
+            ],
+            "canonicalVolumeLink": "https://books.google.com/books/about/Flowers.html?hl=&id=ogs_KDUQLSsC",
+            "categories": Array [
+              "Juvenile Nonfiction",
+            ],
+            "contentVersion": "0.1.1.0.preview.1",
+            "description": "Simple text and photographs depict the parts of flowers and their pollination.",
+            "imageLinks": Object {
+              "smallThumbnail": "http://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+              "thumbnail": "http://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            },
+            "industryIdentifiers": Array [
+              Object {
+                "identifier": "0736848649",
+                "type": "ISBN_10",
+              },
+              Object {
+                "identifier": "9780736848640",
+                "type": "ISBN_13",
+              },
+            ],
+            "infoLink": "http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api",
+            "language": "en",
+            "maturityRating": "NOT_MATURE",
+            "pageCount": 24,
+            "previewLink": "http://books.google.com/books?id=ogs_KDUQLSsC&printsec=frontcover&dq=flowers&hl=&cd=1&source=gbs_api",
+            "printType": "BOOK",
+            "publishedDate": "2004-09-01",
+            "publisher": "Capstone",
+            "readingModes": Object {
+              "image": true,
+              "text": false,
+            },
+            "title": "Flowers",
+          },
+        }
       }
-    }
-    key="CfGDkHrf3vo"
-  />
-</styled.ul>
+      key="CfGDkHrf3vo"
+    />
+  </styled.ul>
+</main>
 `;

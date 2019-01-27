@@ -19,9 +19,11 @@ const Results = ({ results }) => {
   ));
 
   return (
-    <StyledResults>
-      {books}
-    </StyledResults>
+    <main>
+      <StyledResults>
+        {books}
+      </StyledResults>
+    </main>
   );
 };
 

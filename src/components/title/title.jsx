@@ -7,11 +7,13 @@ const StyledTitle = styled.h1`
 `;
 
 const Title = () => (
-  <StyledTitle>
-    <span role="img" aria-label="book emoji"> 📚 </span>
-    Bookworm
-    <span role="img" aria-label="bug emoji"> 🐛 </span>
-  </StyledTitle>
+  <header>
+    <StyledTitle>
+      <span role="img" aria-label="book emoji"> 📚 </span>
+      Bookworm
+      <span role="img" aria-label="bug emoji"> 🐛 </span>
+    </StyledTitle>
+  </header>
 );
 
 export default Title;

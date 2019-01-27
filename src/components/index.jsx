@@ -27,7 +27,7 @@ class App extends Component {
 
   async getBooks(term) {
     const regex = new RegExp(/^\s*$|[#%&]+/);
-    if ((regex.test(term) === false) && (term.length > 1)) {
+    if ((regex.test(term) === false) && (term.length > 0)) {
       const response = await axios
         .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
       const books = response.data.items;
