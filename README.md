@@ -57,6 +57,4 @@ yarn lint
 yarn test
 ```
 
-> This project uses Babel to transpile code. Jest reads the `.babelrc` file when running tests, so be sure to run tests from the root directory of the project to avoid any strange `unexpected token` errors
-
 > This project uses [Husky](https://github.com/typicode/husky) to automatically lint and test code before every commit
