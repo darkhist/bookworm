@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 should render without crashing 1`] = `
+<styled.div>
+  <styled.h1>
+     404 
+  </styled.h1>
+  <styled.p>
+     Page not found 
+  </styled.p>
+  <styled.button
+    as="a"
+    href="/"
+    type="button"
+  >
+    Go Back
+  </styled.button>
+</styled.div>
+`;

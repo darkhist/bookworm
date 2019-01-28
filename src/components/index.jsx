@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -8,6 +9,7 @@ import Title from './title/title';
 import Tagline from './tagline/tagline';
 import Search from './search/search';
 import Results from './results/results';
+import NotFound from './notFound/notFound';
 
 const Error = styled.div`
   font-size: 1.5em;
@@ -73,4 +75,12 @@ class App extends Component {
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById('root') || document.createElement('div'));
+ReactDOM.render(
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route component={NotFound} />
+    </Switch>
+  </BrowserRouter>,
+  document.getElementById('root') || document.createElement('div')
+);
