@@ -6,15 +6,15 @@ import fallback from '../../assets/books-and-glasses.jpg';
 
 const StyledBook = styled.li`
   display: grid;
+  grid-row-gap: .5em;
   align-items: center;
   justify-items: center;
-
   border: 1px solid grey;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 
   0 3px 6px rgba(0,0,0,0.23);
   list-style-type: none;
-  margin: .5em;
-  padding: .5em;
+  margin: .75em;
+  padding: 1em;
   width: 85%;
 
   &:hover {
@@ -42,17 +42,14 @@ const Detail = styled.p`
 `;
 
 const Button = styled.button`
-  background: white;
+  background: transparent;
   border: 2px solid black;
-  border-radius: 30px;
-  font-size: .75em;
-  margin: .5em;
-  width: 8em;
-`;
-
-const Link = styled.a`
+  border-radius: 5px;
   color: black;
+  font-size: .75em;
+  padding: .25em .75em;
   text-decoration: none;
+  width: 8em;
 `;
 
 const Book = ({ book }) => {
@@ -89,10 +86,8 @@ const Book = ({ book }) => {
       </div>
 
       <div>
-        <Button type="button">
-          <Link href={link}>
-            Learn More
-          </Link>
+        <Button as="a" href={link} type="button">
+          Learn more
         </Button>
       </div>
     </StyledBook>

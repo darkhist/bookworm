@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render without crashing 1`] = `
+<header>
+  <styled.h1>
+     bookworm. 
+  </styled.h1>
+</header>
+`;

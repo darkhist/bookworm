@@ -23,13 +23,11 @@ exports[`Book should render without crashing 1`] = `
   </div>
   <div>
     <styled.button
+      as="a"
+      href="http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api"
       type="button"
     >
-      <styled.a
-        href="http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api"
-      >
-        Learn More
-      </styled.a>
+      Learn more
     </styled.button>
   </div>
 </styled.li>

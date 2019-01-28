@@ -8,6 +8,7 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
+  background: transparent;
   border: 0;
   border-bottom: 1px solid black;
   font-size: 1em;

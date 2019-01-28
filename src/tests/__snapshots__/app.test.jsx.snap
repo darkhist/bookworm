@@ -3,8 +3,7 @@
 exports[`App should render without crashing 1`] = `
 <Fragment>
   <GlobalStyleComponent />
-  <Title />
-  <Tagline />
+  <Header />
   <Search
     onChange={[Function]}
     valid={true}

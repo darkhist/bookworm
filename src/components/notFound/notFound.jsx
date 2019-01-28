@@ -6,7 +6,11 @@ const ErrorContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, auto);
   justify-items: center;
-  margin: 8em;
+  margin: 4em;
+
+  @media screen and (min-width: 768px) {
+    margin: 8em;
+  }
 `;
 
 const ErrorCode = styled.h1`

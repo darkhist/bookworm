@@ -5,8 +5,7 @@ import axios from 'axios';
 import styled, { createGlobalStyle } from 'styled-components';
 import debounce from 'lodash.debounce';
 
-import Title from './title/title';
-import Tagline from './tagline/tagline';
+import Header from './header/header';
 import Search from './search/search';
 import Results from './results/results';
 import NotFound from './notFound/notFound';
@@ -17,6 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+  background: #F7F7F7;
+  color: black;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   }
@@ -61,8 +62,7 @@ class App extends Component {
       return (
         <Fragment>
           <GlobalStyle />
-          <Title />
-          <Tagline />
+          <Header />
           <Search valid={valid} onChange={getBooks} />
           <Error>
             Sorry, nothing was found! &thinsp;
@@ -77,8 +77,7 @@ class App extends Component {
     return (
       <Fragment>
         <GlobalStyle />
-        <Title />
-        <Tagline />
+        <Header />
         <Search valid={valid} onChange={getBooks} />
         <Results results={results} />
       </Fragment>
