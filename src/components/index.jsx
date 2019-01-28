@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import debounce from 'lodash.debounce';
 
 import Title from './title/title';
@@ -10,6 +10,17 @@ import Tagline from './tagline/tagline';
 import Search from './search/search';
 import Results from './results/results';
 import NotFound from './notFound/notFound';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+  box-sizing: border-box
+  }
+
+  body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  }
+`;
 
 const Error = styled.div`
   font-size: 1.5em;
@@ -49,6 +60,7 @@ class App extends Component {
     if (!results) {
       return (
         <Fragment>
+          <GlobalStyle />
           <Title />
           <Tagline />
           <Search valid={valid} onChange={getBooks} />
@@ -64,6 +76,7 @@ class App extends Component {
 
     return (
       <Fragment>
+        <GlobalStyle />
         <Title />
         <Tagline />
         <Search valid={valid} onChange={getBooks} />
