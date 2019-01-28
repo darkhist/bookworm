@@ -2,12 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import debounce from 'lodash.debounce';
 
 import Header from './header/header';
 import Search from './search/search';
 import Results from './results/results';
+import NoResults from './noResults/noResults';
 import NotFound from './notFound/notFound';
 
 const GlobalStyle = createGlobalStyle`
@@ -21,12 +22,6 @@ const GlobalStyle = createGlobalStyle`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   }
-`;
-
-const Error = styled.div`
-  font-size: 1.5em;
-  text-align: center;
-  padding: 5em 0;
 `;
 
 class App extends Component {
@@ -51,35 +46,24 @@ class App extends Component {
     }
   }
 
+  renderResults() {
+    const { results } = this.state;
+    return results ? <Results results={results} /> : <NoResults />;
+  }
+
   render() {
-    const { results, valid } = this.state;
+    const { valid } = this.state;
 
     const getBooks = debounce((term) => {
       this.getBooks(term);
     }, 300);
-
-    if (!results) {
-      return (
-        <Fragment>
-          <GlobalStyle />
-          <Header />
-          <Search valid={valid} onChange={getBooks} />
-          <Error>
-            Sorry, nothing was found! &thinsp;
-            <span role="img" aria-label="sad face emoji">
-              😢
-            </span>
-          </Error>
-        </Fragment>
-      );
-    }
 
     return (
       <Fragment>
         <GlobalStyle />
         <Header />
         <Search valid={valid} onChange={getBooks} />
-        <Results results={results} />
+        {this.renderResults()}
       </Fragment>
     );
   }

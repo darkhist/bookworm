@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`No Results should render without crashing 1`] = `
+<styled.div>
+  Sorry, nothing was found!  
+  <span
+    aria-label="sad face emoji"
+    role="img"
+  >
+    😢
+  </span>
+</styled.div>
+`;
