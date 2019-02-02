@@ -4,27 +4,27 @@ exports[`Book should render without crashing 1`] = `
 <styled.li>
   <styled.div>
     <cite>
-      Flowers
+      Bad Cat
     </cite>
   </styled.div>
   <styled.img
-    alt="Cover of Flowers"
-    src="https://books.google.com/books/content?id=ogs_KDUQLSsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
+    alt="Cover of Bad Cat"
+    src="https://books.google.com/books/content?id=74TaXzteRdQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
   />
   <div>
     <styled.p>
       Author(s):  
-      Gail Saunders Smith
+      Jim Edgar, James Jennings Edgar
     </styled.p>
     <styled.p>
       Publisher(s):  
-      Capstone
+      Workman Publishing
     </styled.p>
   </div>
   <div>
     <styled.button
       as="a"
-      href="http://books.google.com/books?id=ogs_KDUQLSsC&dq=flowers&hl=&source=gbs_api"
+      href="http://books.google.com/books?id=74TaXzteRdQC&dq=bad+cat&hl=&source=gbs_api"
       type="button"
     >
       Learn more

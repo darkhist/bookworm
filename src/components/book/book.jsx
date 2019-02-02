@@ -54,7 +54,7 @@ const Button = styled.button`
 
 const Book = ({ book }) => {
   const { title } = book.volumeInfo;
-  const authors = book.volumeInfo.authors || 'Not Available';
+  let authors = book.volumeInfo.authors || 'Not Available';
   const publisher = book.volumeInfo.publisher || 'Not Available';
   let thumbnail = book.volumeInfo.imageLinks
     ? book.volumeInfo.imageLinks.smallThumbnail : fallback;
@@ -62,6 +62,10 @@ const Book = ({ book }) => {
   const alt = `Cover of ${title}`;
 
   thumbnail = thumbnail.replace('http', 'https');
+
+  if ((Array.isArray(authors)) && (authors.length > 1)) {
+    authors = authors.join(', ');
+  }
 
   return (
     <StyledBook>
