@@ -13,3 +13,31 @@ exports[`App should render without crashing 1`] = `
   />
 </Fragment>
 `;
+
+exports[`getBooks() display an error if there is nothing found 1`] = `
+<Fragment>
+  <GlobalStyleComponent />
+  <Header />
+  <Search
+    onChange={[Function]}
+    valid={true}
+  />
+  <Results
+    results={Array []}
+  />
+</Fragment>
+`;
+
+exports[`getBooks() should handle API errors gracefully 1`] = `
+<Fragment>
+  <GlobalStyleComponent />
+  <Header />
+  <Search
+    onChange={[Function]}
+    valid={true}
+  />
+  <Err
+    msg="Oops. We couldn't reach the Google Books API"
+  />
+</Fragment>
+`;

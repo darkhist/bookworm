@@ -8,7 +8,7 @@ import debounce from 'lodash.debounce';
 import Header from './header/header';
 import Search from './search/search';
 import Results from './results/results';
-import NoResults from './noResults/noResults';
+import Err from './err/err';
 import NotFound from './notFound/notFound';
 
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { results: [], valid: true };
+    this.state = { results: [], valid: true, error: false };
   }
 
   componentDidMount() {
@@ -37,18 +37,24 @@ class App extends Component {
   async getBooks(term) {
     const regex = new RegExp(/^\s*$|[#%&]+/);
     if ((regex.test(term) === false) && (term.length > 0)) {
-      const response = await axios
-        .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
-      const books = response.data.items;
-      this.setState({ results: books, valid: true });
+      try {
+        const response = await axios
+          .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
+        const books = response.data.items;
+        this.setState({ results: books, valid: true });
+      } catch (error) {
+        this.setState({ error: true });
+        throw new Error('Error reaching Google Books API', error);
+      }
     } else {
       this.setState({ valid: false });
     }
   }
 
   renderResults() {
-    const { results } = this.state;
-    return results ? <Results results={results} /> : <NoResults />;
+    const { results, error } = this.state;
+    if (error) return <Err msg="Oops. We couldn't reach the Google Books API" />;
+    return results ? <Results results={results} /> : <Err msg="Sorry, no results!" />;
   }
 
   render() {
