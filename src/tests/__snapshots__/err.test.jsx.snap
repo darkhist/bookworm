@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Err should render with "no results" 1`] = `
+<styled.div>
+  no results
+  <br />
+  <span
+    aria-label="sad face emoji"
+    role="img"
+  >
+    😢
+  </span>
+</styled.div>
+`;
+
+exports[`Err should render with "oops. something went wrong" 1`] = `
+<styled.div>
+  oops. something went wrong
+  <br />
+  <span
+    aria-label="sad face emoji"
+    role="img"
+  >
+    😢
+  </span>
+</styled.div>
+`;
+
+exports[`Err should render without crashing 1`] = `
+<styled.div>
+  <br />
+  <span
+    aria-label="sad face emoji"
+    role="img"
+  >
+    😢
+  </span>
+</styled.div>
+`;
