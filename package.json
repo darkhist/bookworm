@@ -39,6 +39,7 @@
     "build": "parcel build src/index.html --experimental-scope-hoisting",
     "lint": "npx eslint src/ --ext .jsx",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:update": "jest --updateSnapshot"
   },
