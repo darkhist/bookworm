@@ -1,5 +1,6 @@
+const badReq = 'https://www.googleapis.com/books/v1/volumes?q=%%%%';
 const noResults = 'https://www.googleapis.com/books/v1/volumes?q=really_long_strange_query';
-const invalid = 'https://www.googleapis.com/books/v99999/vols';
+const invalidURL = 'https://www.googleapis.com/books/v9999';
 
 const data = {
   kind: 'books#volumes',
@@ -77,19 +78,34 @@ const data = {
   ]
 };
 
-const none = {
-  kind: 'books#volumes',
-  totalItems: 2891,
-  items: []
-};
+const BadRequestError = () => ({
+  status: 400,
+  data: 'Bad Request'
+});
+
+const NoResultsError = () => ({
+  status: 200,
+  data: {
+    kind: 'books#volumes',
+    totalItems: 0
+  }
+});
+
+const NotFoundError = () => ({
+  status: 404,
+  data: 'Not Found'
+});
 
 export default {
   get: jest.fn(((url) => {
-    if (url === noResults) {
-      return Promise.resolve({ data: none });
+    if (url === badReq) {
+      return Promise.reject(new BadRequestError());
     }
-    if (url === invalid) {
-      return Promise.reject(new Error('Invalid Request'));
+    if (url === noResults) {
+      return Promise.reject(new NoResultsError());
+    }
+    if (url === invalidURL) {
+      return Promise.reject(new NotFoundError());
     }
     return Promise.resolve({ data });
   }))

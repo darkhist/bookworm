@@ -44,7 +44,6 @@ class App extends Component {
         this.setState({ results: books, valid: true });
       } catch (error) {
         this.setState({ error: true });
-        throw new Error('Error reaching Google Books API', error);
       }
     } else {
       this.setState({ valid: false });
