@@ -21,7 +21,7 @@ describe('App', () => {
     const app = shallow(<App />);
     expect(app.state('results')).toEqual([]);
     expect(app.state('valid')).toBeTruthy();
-    expect(app.state('error')).toBeFalsy();
+    expect(app.state('error')).toEqual({});
   });
 
   it('should call getBooks on componentDidMount', () => {
@@ -31,36 +31,27 @@ describe('App', () => {
     expect(spy).toHaveBeenCalledWith('cats');
   });
 
-  it('should have the correct state on valid queries', async () => {
+  it('should render correctly on valid queries', () => {
     const app = shallow(<App />);
     const instance = app.instance();
-    const spy = jest.spyOn(instance, 'getBooks');
     instance.getBooks(valid);
-    expect(spy).toHaveBeenCalledTimes(2);
-
-    const results = await getBooks(valid);
-    expect(app.state('results')).toEqual(results.data.items);
     expect(app.state('valid')).toBeTruthy();
-    expect(app.state('error')).toBeFalsy();
+    expect(app).toMatchSnapshot();
   });
 
-  it('should have the correct state on invalid queries', () => {
+  it('should render correctly on invalid queries', () => {
     const app = shallow(<App />);
     const instance = app.instance();
-    const spy = jest.spyOn(instance, 'getBooks');
     instance.getBooks(badReq);
-    expect(spy).toHaveBeenCalledTimes(2);
     expect(app.state('valid')).toBeFalsy();
     expect(app).toMatchSnapshot();
   });
 
-  it('should have the correct state on API call failure', async () => {
+  it('should render correctly on API errors', () => {
     const app = shallow(<App />);
     const instance = app.instance();
-    const spy = jest.spyOn(instance, 'setState');
-    await instance.getBooks(invalidURL);
-    expect(spy).toHaveBeenCalled();
-    expect(app.find(Err)).toBeTruthy();
+    instance.getBooks(invalidURL);
+    expect(app).toMatchSnapshot();
   });
 
   it('should handle state changes properly', async () => {
@@ -69,21 +60,33 @@ describe('App', () => {
     const spy = jest.spyOn(instance, 'getBooks');
     await instance.getBooks(valid);
     expect(spy).toHaveBeenCalledTimes(2);
-    expect(app.state('results')).toHaveLength(1);
     expect(app.state('valid')).toBeTruthy();
-    expect(app.state('error')).toBeFalsy();
     await instance.getBooks(badReq);
     expect(spy).toHaveBeenCalledTimes(3);
-    expect(app.state('results')).toHaveLength(1);
     expect(app.state('valid')).toBeFalsy();
-    expect(app.state('error')).toBeFalsy();
+  });
+
+  it('should render the correct error on 403 ', () => {
+    const app = shallow(<App />);
+    app.setState({ error: { status: 403 } });
+    const err = app.find(Err);
+    expect(err.prop('msg')).toEqual('Oops. Rate limit exceeded');
     expect(app).toMatchSnapshot();
   });
 
-  it('should render errors accordingly', () => {
+  it('should render the correct error on 404 ', () => {
     const app = shallow(<App />);
-    app.setState({ error: true });
-    expect(app.find(Err)).toBeTruthy();
+    app.setState({ error: { status: 404 } });
+    const err = app.find(Err);
+    expect(err.prop('msg')).toEqual('Oops. We couldn\'t reach the Google Books API');
+    expect(app).toMatchSnapshot();
+  });
+
+  it('should render the correct error on 500 ', () => {
+    const app = shallow(<App />);
+    app.setState({ error: { status: 500 } });
+    const err = app.find(Err);
+    expect(err.prop('msg')).toEqual('Oops. Server error');
     expect(app).toMatchSnapshot();
   });
 

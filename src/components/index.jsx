@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { results: [], valid: true, error: false };
+    this.state = { results: [], valid: true, error: {} };
   }
 
   componentDidMount() {
@@ -42,8 +42,10 @@ class App extends Component {
           .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
         const books = response.data.items;
         this.setState({ results: books, valid: true });
-      } catch (error) {
-        this.setState({ error: true });
+      } catch (e) {
+        const { error } = this.state;
+        error.status = e.response.status;
+        this.setState({ error });
       }
     } else {
       this.setState({ valid: false });
@@ -52,7 +54,9 @@ class App extends Component {
 
   renderResults() {
     const { results, error } = this.state;
-    if (error) return <Err msg="Oops. We couldn't reach the Google Books API" />;
+    if (error.status === 403) return <Err msg="Oops. Rate limit exceeded" />;
+    if (error.status === 404) return <Err msg="Oops. We couldn't reach the Google Books API" />;
+    if (error.status === 500) return <Err msg="Oops. Server error" />;
     return results ? <Results results={results} /> : <Err msg="Sorry, no results!" />;
   }
 
