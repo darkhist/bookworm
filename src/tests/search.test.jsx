@@ -23,17 +23,20 @@ describe('Search', () => {
     expect(input.exists()).toBeTruthy();
   });
 
+  it('should render an error message if the search is invalid', () => {
+    const search = shallow(<Search onChange={fn} valid={false} />);
+    expect(search).toMatchSnapshot();
+  });
+
   it('should update the state on input change', () => {
     const search = mount(<Search onChange={fn} valid={valid} />);
     const input = search.find('input');
-
     input.simulate('change', {
       target: {
         value: 'Harry Potter'
       }
     });
     expect(search.state('term')).toEqual('Harry Potter');
-
     input.simulate('change', {
       target: {
         value: 'The Great Gatsby'

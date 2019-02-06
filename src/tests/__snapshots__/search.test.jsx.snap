@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Search should render an error message if the search is invalid 1`] = `
+<styled.div>
+  <styled.input
+    aria-label="search"
+    onChange={[Function]}
+    placeholder="Search"
+    type="text"
+    value=""
+  />
+  <styled.span
+    valid={false}
+  >
+    Searches cannot be empty, and the following characters are not allowed: #, %, &
+  </styled.span>
+</styled.div>
+`;
+
 exports[`Search should render without crashing 1`] = `
 <styled.div>
   <styled.input
