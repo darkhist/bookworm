@@ -38,8 +38,9 @@ class App extends Component {
     const regex = new RegExp(/^\s*$|[#%&]+/);
     if ((regex.test(term) === false) && (term.length > 0)) {
       try {
-        const response = await axios
-          .get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
+        const fields = 'items/etag, items/volumeInfo/authors, items/volumeInfo/publisher, items/volumeInfo/imageLinks/smallThumbnail, items/volumeInfo/infoLink';
+        const url = `https://www.googleapis.com/books/v1/volumes?q=${term}&fields=${fields}`;
+        const response = await axios.get(url);
         const books = response.data.items;
         this.setState({ results: books, valid: true });
       } catch (e) {
