@@ -65,7 +65,7 @@ exports[`App should render the correct error on 404  1`] = `
     valid={true}
   />
   <Err
-    msg="Oops. We couldn't reach the Google Books API"
+    msg="Sorry, no results"
   />
 </Fragment>
 `;

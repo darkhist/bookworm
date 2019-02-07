@@ -20,6 +20,8 @@ describe('App', () => {
   it('should have the correct init state', () => {
     const app = shallow(<App />);
     expect(app.state('results')).toEqual([]);
+    expect(app.state('index')).toEqual(0);
+    expect(app.state('searchTerm')).toEqual('');
     expect(app.state('valid')).toBeTruthy();
     expect(app.state('error')).toEqual({});
   });
@@ -28,7 +30,7 @@ describe('App', () => {
     const spy = jest.spyOn(App.prototype, 'getBooks');
     shallow(<App />);
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith('cats');
+    expect(spy).toHaveBeenCalledWith('cats', 0);
   });
 
   it('should render correctly on valid queries', () => {
@@ -78,7 +80,7 @@ describe('App', () => {
     const app = shallow(<App />);
     app.setState({ error: { status: 404 } });
     const err = app.find(Err);
-    expect(err.prop('msg')).toEqual('Oops. We couldn\'t reach the Google Books API');
+    expect(err.prop('msg')).toEqual('Sorry, no results');
     expect(app).toMatchSnapshot();
   });
 
