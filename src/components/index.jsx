@@ -117,7 +117,7 @@ class App extends Component {
           await this.getBooks(currentSearch, 0);
         });
       }
-    }, 300);
+    }, 750);
 
     return (
       <Fragment>
