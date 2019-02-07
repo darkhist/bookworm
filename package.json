@@ -38,9 +38,9 @@
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --experimental-scope-hoisting",
     "lint": "npx eslint src/ --ext .jsx",
-    "test": "jest",
+    "test": "jest --verbose",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watch --verbose",
     "test:update": "jest --updateSnapshot"
   },
   "husky": {
