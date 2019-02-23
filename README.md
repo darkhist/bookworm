@@ -2,8 +2,6 @@
 
 > Bookworm is a single page web app designed to help you find new books!
 
-![](src/assets/bookworm-demo.gif)
-
 Built & Tested With:
 
 + [React](https://reactjs.org/)
